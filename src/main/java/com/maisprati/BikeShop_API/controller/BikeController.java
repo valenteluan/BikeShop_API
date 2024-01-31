@@ -32,4 +32,10 @@ public class BikeController {
         return ResponseEntity.ok(listDto);
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<BikeDTO> list(@PathVariable Long id) {
+        Bike bike = service.listarPorId(id);
+        return ResponseEntity.ok().body(new BikeDTO(bike));
+    }
+
 }

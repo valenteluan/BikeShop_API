@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BikeService {
@@ -23,6 +24,11 @@ public class BikeService {
     public List<Bike> listarTodasBikes() {
         List<Bike> bikes = bikeRepository.findAll();
         return bikes;
+    }
+
+    public Bike listarPorId(Long id) {
+        Optional<Bike> bike = bikeRepository.findById(id);
+        return bike.orElseThrow(() -> new RuntimeException("Bike não encontrada: Id " + id));
     }
 
 }

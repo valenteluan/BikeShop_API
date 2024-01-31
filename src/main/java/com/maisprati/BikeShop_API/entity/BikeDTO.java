@@ -7,6 +7,8 @@ import java.time.LocalDate;
 
 public record BikeDTO(
 
+        Long id,
+
         String descricao,
         String modelo,
         double preco,
@@ -19,6 +21,6 @@ public record BikeDTO(
         String loja) {
 
         public BikeDTO(Bike bike) {
-                this(bike.getDescricao(), bike.getModelo(), bike.getPreco(), bike.getDataCompra(), bike.getComprador(), bike.getLoja());
+                this(bike.getId(), bike.getDescricao(), bike.getModelo(), bike.getPreco(), bike.getDataCompra(), bike.getComprador(), bike.getLoja());
         }
 }

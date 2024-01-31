@@ -1,6 +1,7 @@
 package com.maisprati.BikeShop_API.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.Column;
 
 import java.time.LocalDate;
 
@@ -11,6 +12,7 @@ public record BikeDTO(
         double preco,
 
         @JsonFormat(pattern = "dd/MM/yyyy")
+        @Column(name = "data_compra")
         LocalDate dataCompra,
         String comprador,
 

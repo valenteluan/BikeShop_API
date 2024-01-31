@@ -14,6 +14,7 @@ public class BikeService {
 
     public Bike cadastrar(BikeDTO dados) {
         Bike bike = new Bike(dados);
+        bikeRepository.save(bike);
         return bike;
     }
 

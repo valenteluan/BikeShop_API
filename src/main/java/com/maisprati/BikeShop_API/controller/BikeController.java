@@ -38,4 +38,10 @@ public class BikeController {
         return ResponseEntity.ok().body(new BikeDTO(bike));
     }
 
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<BikeDTO> delete(@PathVariable Long id) {
+        service.deletarBike(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

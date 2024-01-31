@@ -31,4 +31,8 @@ public class BikeService {
         return bike.orElseThrow(() -> new RuntimeException("Bike não encontrada: Id " + id));
     }
 
+    public void deletarBike(Long id) {
+        bikeRepository.deleteById(id);
+    }
+
 }

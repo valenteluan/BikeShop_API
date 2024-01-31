@@ -6,6 +6,8 @@ import com.maisprati.BikeShop_API.repository.BikeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BikeService {
 
@@ -16,6 +18,11 @@ public class BikeService {
         Bike bike = new Bike(dados);
         bikeRepository.save(bike);
         return bike;
+    }
+
+    public List<Bike> listarTodasBikes() {
+        List<Bike> bikes = bikeRepository.findAll();
+        return bikes;
     }
 
 }

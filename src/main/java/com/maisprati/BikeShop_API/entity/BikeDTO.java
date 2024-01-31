@@ -16,6 +16,9 @@ public record BikeDTO(
         LocalDate dataCompra,
         String comprador,
 
-        String loja
-) {
+        String loja) {
+
+        public BikeDTO(Bike bike) {
+                this(bike.getDescricao(), bike.getModelo(), bike.getPreco(), bike.getDataCompra(), bike.getComprador(), bike.getLoja());
+        }
 }

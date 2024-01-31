@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 
@@ -21,9 +22,10 @@ public class BikeController {
     private BikeService service;
 
     @PostMapping
-    public Bike create(@RequestBody BikeDTO dados) {
+    public ResponseEntity<BikeDTO> create(@RequestBody BikeDTO dados, UriComponentsBuilder uriBuilder) {
         Bike bike = service.cadastrar(dados);
-        return bike;
+        var uri = uriBuilder.path("/bikes/{id}").buildAndExpand(bike.getId()).toUri();
+        return ResponseEntity.created(uri).body(new BikeDTO(bike));
     }
 
 }

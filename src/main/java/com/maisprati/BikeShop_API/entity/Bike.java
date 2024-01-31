@@ -41,7 +41,6 @@ public class Bike {
     }
 
     public Bike(BikeDTO dto) {
-        this.id = dto.id();
         this.descricao = dto.descricao();
         this.modelo = dto.modelo();
         this.preco = dto.preco();

@@ -37,8 +37,14 @@ public class BikeService {
 
     public Bike atualizarTodosCampos(BikeDTO dados) {
         var bike = bikeRepository.getReferenceById(dados.id());
-        bike.atulizar(dados);
-        return bike;
+        bike.atualizar(dados);
+        return bikeRepository.save(bike);
+    }
+
+    public Bike atualizarParcial(BikeDTO dados) {
+        var bike = bikeRepository.getReferenceById(dados.id());
+        bike.atualizarParcial(dados);
+        return bikeRepository.save(bike);
     }
 
 }

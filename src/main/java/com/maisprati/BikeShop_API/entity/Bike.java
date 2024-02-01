@@ -17,7 +17,7 @@ public class Bike {
 
     private String modelo;
 
-    private double preco;
+    private Double preco;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "data_compra")
@@ -30,7 +30,7 @@ public class Bike {
     public Bike() {
     }
 
-    public Bike(String descricao, String modelo, double preco, LocalDate dataCompra, String comprador, String loja) {
+    public Bike(String descricao, String modelo, Double preco, LocalDate dataCompra, String comprador, String loja) {
         this.descricao = descricao;
         this.modelo = modelo;
         this.preco = preco;
@@ -48,13 +48,34 @@ public class Bike {
         this.loja = dto.loja();
     }
 
-    public void atulizar(BikeDTO dto) {
+    public void atualizar(BikeDTO dto) {
         this.descricao = dto.descricao();
         this.modelo = dto.modelo();
         this.preco = dto.preco();
         this.dataCompra = dto.dataCompra();
         this.comprador = dto.comprador();
         this.loja = dto.loja();
+    }
+
+    public void atualizarParcial(BikeDTO dto) {
+        if (dto.descricao() != null) {
+            this.descricao = dto.descricao();
+        }
+        if (dto.modelo() != null) {
+            this.modelo = dto.modelo();
+        }
+        if (dto.preco() != null) {
+            this.preco = dto.preco();
+        }
+        if (dto.dataCompra() != null) {
+            this.dataCompra = dto.dataCompra();
+        }
+        if (dto.comprador() != null) {
+            this.comprador = dto.comprador();
+        }
+        if (dto.loja() != null) {
+            this.loja = dto.loja();
+        }
     }
 
     public Long getId() {
@@ -85,7 +106,7 @@ public class Bike {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 

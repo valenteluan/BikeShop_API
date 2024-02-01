@@ -50,4 +50,10 @@ public class BikeController {
         return ResponseEntity.ok().body(new BikeDTO(bike));
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<BikeDTO> patchUpdate(@PathVariable Long id, @RequestBody BikeDTO dados) {
+        Bike bike = service.atualizarParcial(dados);
+        return ResponseEntity.ok().body(new BikeDTO(bike));
+    }
+
 }

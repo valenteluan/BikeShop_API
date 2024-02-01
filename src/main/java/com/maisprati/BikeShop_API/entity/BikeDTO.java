@@ -10,7 +10,7 @@ public record BikeDTO(
         Long id,
         String descricao,
         String modelo,
-        double preco,
+        Double preco,
 
         @JsonFormat(pattern = "dd/MM/yyyy")
         @Column(name = "data_compra")

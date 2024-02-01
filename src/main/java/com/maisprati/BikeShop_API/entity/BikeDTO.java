@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public record BikeDTO(
 
         Long id,
-
         String descricao,
         String modelo,
         double preco,
@@ -17,7 +16,6 @@ public record BikeDTO(
         @Column(name = "data_compra")
         LocalDate dataCompra,
         String comprador,
-
         String loja) {
 
         public BikeDTO(Bike bike) {

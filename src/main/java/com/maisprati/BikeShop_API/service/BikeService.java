@@ -35,4 +35,10 @@ public class BikeService {
         bikeRepository.deleteById(id);
     }
 
+    public Bike atualizarTodosCampos(BikeDTO dados) {
+        var bike = bikeRepository.getReferenceById(dados.id());
+        bike.atulizar(dados);
+        return bike;
+    }
+
 }

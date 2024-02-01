@@ -44,4 +44,10 @@ public class BikeController {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping
+    public ResponseEntity<BikeDTO> update(@RequestBody BikeDTO dados) {
+        Bike bike = service.atualizarTodosCampos(dados);
+        return ResponseEntity.ok().body(new BikeDTO(bike));
+    }
+
 }

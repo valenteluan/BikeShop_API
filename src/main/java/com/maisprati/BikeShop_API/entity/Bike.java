@@ -48,6 +48,15 @@ public class Bike {
         this.loja = dto.loja();
     }
 
+    public void atulizar(BikeDTO dto) {
+        this.descricao = dto.descricao();
+        this.modelo = dto.modelo();
+        this.preco = dto.preco();
+        this.dataCompra = dto.dataCompra();
+        this.comprador = dto.comprador();
+        this.loja = dto.loja();
+    }
+
     public Long getId() {
         return id;
     }

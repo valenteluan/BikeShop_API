@@ -1,4 +1,4 @@
-package com.maisprati.BikeShop_API.infra;
+package com.maisprati.BikeShop_API.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

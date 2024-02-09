@@ -3,6 +3,7 @@ package com.maisprati.BikeShop_API.controller;
 import com.maisprati.BikeShop_API.entity.Bike;
 import com.maisprati.BikeShop_API.entity.BikeDTO;
 import com.maisprati.BikeShop_API.service.BikeService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/bikes")
+@SecurityRequirement(name = "bearer-key")
 public class BikeController {
 
     @Autowired

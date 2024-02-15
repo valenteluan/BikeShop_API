@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name = "bikes")
@@ -132,5 +133,18 @@ public class Bike {
 
     public void setLoja(String loja) {
         this.loja = loja;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Bike bike = (Bike) object;
+        return Objects.equals(id, bike.id) && Objects.equals(descricao, bike.descricao) && Objects.equals(preco, bike.preco);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, descricao, preco);
     }
 }
